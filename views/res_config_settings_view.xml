@@ -1,45 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <record id="res_config_settings_view_form_whatsapp" model="ir.ui.view">
     <field name="name">res.config.settings.view.form.inherit.whatsapp</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form" />
     <field name="model">res.config.settings</field>
-    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="priority" eval="100" />
     <field name="arch" type="xml">
-      <xpath expr="//div[contains(@class,'o_settings_container')]" position="inside">
-        <div class="app_settings_block" data-key="odoo_whatsapp_api" string="WhatsApp">
-          <h2>WhatsApp Connection Settings</h2>
-          <div class="row mt16 o_settings_container">
-            <div class="col-12 col-lg-6 o_setting_box">
-              <div class="o_setting_right_pane">
-                <label for="dialog_namespace"/>
-                <div class="text-muted">360dialog Namespace (templates)</div>
-                <field name="dialog_namespace"/>
-              </div>
+        <xpath expr="//div[@id='settings_modules']" position="inside">
+            <div class="app_settings_block" data-key="odoo-whatsapp-api">
+                <h2>WhatsApp Connection Settings</h2>
+                <div class="row mt16 o_settings_container" name="whatsapp_setting_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="dialog_namespace"/>
+                            <div class="text-muted">360dialog Namespace</div>
+                            <field name="dialog_namespace"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="dialog_api_key"/>
+                            <div class="text-muted">360dialog API Key</div>
+                            <field name="dialog_api_key" password="True"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="webhook_url"/>
+                            <div class="text-muted">Webhook URL (dev)</div>
+                            <field name="webhook_url"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="developer_mode"/>
+                            <div class="text-muted">Use Sandbox (Developer Mode)</div>
+                            <field name="developer_mode" widget="boolean_toggle"/>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-lg-6 o_setting_box">
-              <div class="o_setting_right_pane">
-                <label for="dialog_api_key"/>
-                <div class="text-muted">360dialog API Key</div>
-                <field name="dialog_api_key" password="True"/>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6 o_setting_box">
-              <div class="o_setting_right_pane">
-                <label for="webhook_url"/>
-                <div class="text-muted">Webhook URL (development/testing)</div>
-                <field name="webhook_url" placeholder="https://example.com/webhook"/>
-              </div>
-            </div>
-            <div class="col-12 col-lg-6 o_setting_box">
-              <div class="o_setting_right_pane">
-                <label for="developer_mode"/>
-                <div class="text-muted">Enable Sandbox Mode</div>
-                <field name="developer_mode" widget="boolean_toggle"/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </xpath>
+        </xpath>
     </field>
   </record>
 </odoo>
