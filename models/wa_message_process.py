@@ -108,7 +108,7 @@ class WaMessageQueue(models.Model):
                 user = config.activity_default_user_id
             if not user:
                 user = self.env.user
-            rec.activity_schedule('odoo-whatsapp-api.message_error_activity', user_id=user.id, note=error_message, date_deadline=fields.Date.today())
+            rec.activity_schedule('odoo_whatsapp_api.message_error_activity', user_id=user.id, note=error_message, date_deadline=fields.Date.today())
     @api.depends('status')
     def log_note(self):
         for record in self:
